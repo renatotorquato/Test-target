@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste para a Target</title>
+</head>
+<body>
+   <div><h1>Teste para vaga de Analista na Target</h1></div> 
+   <!-- Foram divididos os exercicios em divs. -->
+   <div>
+    <h2>Exercicio 1</h2>
+    <span id="ex1"></span>
+   </div>
+
+    <div>
+        <h2>Exercicio 2</h2>
+        <form>
+            <input type="number" id="number" name="number">
+          </form>
+          <button onclick="fibo()">Number</button>
+          <span id="ex2"></span>
+    </div>
+
+    <h2>Exercicio 3</h2>
+    <span id="ex3">
+        a) 1, 3, 5, 7, <b>9</b> <br>
+
+        b) 2, 4, 8, 16, 32, 64, <b>128</b><br>
+        
+        c) 0, 1, 4, 9, 16, 25, <b>36</b><br>
+        
+        d) 4, 16, 36, 64, <b>100</b><br>
+        
+        e) 1, 1, 2, 3, 5, 8, <b>13</b><br>
+        
+        f) 2,10, 12, 16, 17, 18, 19, <b>200</b><br>
+    </span>
+   </div>
+
+   <div>
+    <h2>Exercicio 4</h2>
+    <p>Na verdade os 2 veículos estarão a mais ou menos 50 kilômentros de distância da cidade de Ribeirão Preto. e estariam os dois na mesma distância por estarem se cruzando na via.<br> Eu dividi a velocidade do carro de 110 por 6 para ver quanto o carro percorre em 10 minutos e fiz o mesmo com o caminhão, porém dividi por 7 devido os 2 pedágios.<br> Depois fui calculando espaços de 10 minutos e vendo onde os dois estariam.</p>
+   </div>
+   
+   <h2>Exercicio 5</h2>
+   <form>
+    <input type="text" id="string" name="string" placeholder="Escreva algo">
+  </form>
+  <button onclick="invert()">String</button><br>
+    <span id="ex5"></span><br>
+    <span id="ex5b"></span>
+   </div>
+
+    <script>
+        function test1() {
+            const INDICE = 13;
+            var sum = 0;
+            var k = 0;
+            while(k<INDICE){
+                k += 1;
+                sum += k;
+            }
+            return sum
+        }
+        document.getElementById("ex1").innerHTML = "Teste 1 Resultado: " + "O valor da variável SOMA É: " + test1();
+    </script>
+    <br>
+    <script>
+
+        function fibo () {
+        var input = document.querySelector("#number").value;
+        var fibonacci = [];
+        fibonacci[0] = 0;
+        fibonacci[1] = 1;
+        for (var i = 2; i < Number(input) + 5; i++) {
+        fibonacci[i] = fibonacci[i - 2] + fibonacci[i - 1];
+       
+        }
+        if (fibonacci.indexOf(Number(input)) != -1){
+            console.log("ok")
+            document.getElementById("ex2").innerHTML = "O Resultado é: " + true;
+        } else {
+            console.log("nao")
+       document.getElementById("ex2").innerHTML = "O Resultado é: " + false;
+        }
+    };
+    </script>
+    <script>
+        // Nesta função deixei como eu fiz o calculo usando for e depois passei para um map e usando arrow function.  
+
+        function invert () {
+            var string = document.querySelector("#string").value;
+             var arr2 = string.split('')//.reverse().join('')
+             var arr = []; 
+             arr2.map((a,b)=> arr.push(arr2[arr2.length - (b +1)]))
+
+             //for(var i = 1;i< arr2.length +1;i++){
+               // arr.push(arr2[arr2.length - i])
+
+            // }
+            document.getElementById("ex5").innerHTML = "A String original é: " + string;
+            document.getElementById("ex5b").innerHTML = "A String invertida é: " + arr.join("");
+        }
+        
+    </script>
+</body>
+</html>
